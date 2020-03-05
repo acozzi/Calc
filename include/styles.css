@@ -1,0 +1,45 @@
+body {
+  background-color: white;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  background-color: green;
+}
+h2 {
+	background-color: green;
+}
+#pantalla{
+	font-family: verdana;
+	font-size: 52px;
+	text-align: right;
+}
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+#formContacto{
+	background-color: cyan;
+}
+.elemento{
+	background-color: magenta;
+	
+	
+}
+div[name=mensajeContacto]{
+	background-color: rgb(255,255,0);
+}
+footer{
+	vertical-align: bottom;
+	background-color: green;
+}
+table {
+	display: table;
+	border-collapse: separate;
+	border-spacing: 4px;
+	border-color: gray;
+	border-style: solid; 
+	font-size:52px;
+	font-size-adjust 0.58:
+}

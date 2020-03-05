@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Calculadora</title>
+	<link rel="stylesheet" type="text/css" href="include/styles.css">
+	<meta charset="utf-8">
+	<script src="include/script.js"></script>
+	<noscript>Este explorador no soporta JS</noscript>
+</head>
+<body>
+	<h1>Calculadora JS</h1>
+	<div name="pantalla" id="pantalla">0</div>
+	<table style="width:100%">
+	  <tr>
+		<th onclick="escribir(7)">7</th>
+		<th onclick="escribir(8)">8</th>
+		<th onclick="escribir(9)">9</th>
+		<th onclick="escribir('-')">-</th>
+	  </tr>
+	  <tr>
+		<th onclick="escribir(4)">4</th>
+		<th onclick="escribir(5)">5</th>
+		<th onclick="escribir(6)">6</th>
+		<th onclick="escribir('+')">+</th>
+	  </tr>
+	  <tr>
+		<th onclick="escribir(1)">1</th>
+		<th onclick="escribir(2)">2</th>
+		<th onclick="escribir(3)">3</th>
+		<th onclick="escribir('*')">*</th>
+	  </tr>	  
+	  <tr>
+		<th></th>
+		
+		<th onclick="escribir(0)">0</th>
+		<th onclick="escribir('=')">=</th>
+		<th onclick="escribir('/')">/</th>
+	  </tr>
+	</table>
+
+</body>
+<footer>Dessarrollado por Alejandro Cozzi para el Curso de ReactJS</footer>
+</html>
