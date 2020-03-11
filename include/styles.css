@@ -5,10 +5,10 @@ body {
 h1 {
   color: white;
   text-align: center;
-  background-color: green;
+  background-color: rgb(128, 0, 70);
 }
 h2 {
-	background-color: green;
+	background-color: rgb(111, 24, 211);
 }
 #pantalla{
 	font-family: verdana;
@@ -19,20 +19,9 @@ p {
   font-family: verdana;
   font-size: 20px;
 }
-#formContacto{
-	background-color: cyan;
-}
-.elemento{
-	background-color: magenta;
-	
-	
-}
-div[name=mensajeContacto]{
-	background-color: rgb(255,255,0);
-}
 footer{
 	vertical-align: bottom;
-	background-color: green;
+	background-color: rgb(143, 4, 50);
 }
 table {
 	display: table;
