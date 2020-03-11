@@ -1,11 +1,14 @@
-
 var res=0;
 var calculo= new Array();
 calculo[0]=0;
 var contador=0;
 
 function escribir(numero){
-	if(document.getElementById("pantalla").innerHTML == '+'){
+	if(document.getElementById("pantalla").innerHTML == '+' ||
+		document.getElementById("pantalla").innerHTML == '-' ||
+		document.getElementById("pantalla").innerHTML == '*' ||
+		document.getElementById("pantalla").innerHTML == '/'
+	){
 		document.getElementById("pantalla").innerHTML=0;
 		document.getElementById("pantalla").innerHTML+=numero;
 	} else {
@@ -13,44 +16,34 @@ function escribir(numero){
 	}
 }
 function resultado(){
-	//acumular();
-	res=calculo[0];
-	for(let i=1;i<calculo.length-1;i+=2){
-		res = operar(res, calculo[i+1],calculo[i]);	
+	let i;
+	calculo[contador]=document.getElementById("pantalla").innerHTML*1;
+	contador++;
+	calculo[contador]="+";	
+	for(i=1;i<calculo.length-1;i++){
+		res = operar(calculo[i-1], calculo[i+1],calculo[i]);
+		i=i+2;
 	}
 	document.getElementById("pantalla").innerHTML=res;
-	acumular();
 }
 function operar(valor1, valor2,operador){
 	switch(operador){
-		case '+':
+		case "+":
 			return valor1+valor2;
 		break;
-		case '-':
+		case "-":
 			return valor1-valor2;
 		break;
-		case '*':
+		case "*":
 			return valor1*valor2;
 		break;
-		case '/':
+		case "/":
 			return valor1/valor2;
 		break;
 	}
 }
 function signo(operador){
 	acumular(operador);
-	//contador++;
-	
-	/*
-	document.getElementById("pantalla").innerHTML=0;	
-	
-	if(typeof calculo[contador] == "number"){
-
-			
-	} else {
-		alert("ERROR: No se puede usar más de un operador por operación.");
-	}
-	*/
 }
 function borrar(){
 	calculo=new Array();
@@ -66,4 +59,3 @@ function acumular(operador){
 	calculo[contador]=operador;
 	contador++;
 }
-
