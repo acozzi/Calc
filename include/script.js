@@ -2,48 +2,62 @@ var res=0;
 var calculo= new Array();
 calculo[0]=0;
 var contador=0;
+var equal = false;
 
 function escribir(numero){
+    if(equal){
+        borrar();
+        equal=false;
+    }
 	if(document.getElementById("pantalla").innerHTML == '+' ||
-		document.getElementById("pantalla").innerHTML == '-' ||
-		document.getElementById("pantalla").innerHTML == '*' ||
-		document.getElementById("pantalla").innerHTML == '/'
-	){
-		document.getElementById("pantalla").innerHTML=0;
+	document.getElementById("pantalla").innerHTML == '-' ||
+	document.getElementById("pantalla").innerHTML == '*' ||
+	document.getElementById("pantalla").innerHTML == '/'){
+		document.getElementById("pantalla").innerHTML='';
 		document.getElementById("pantalla").innerHTML+=numero;
 	} else {
-		document.getElementById("pantalla").innerHTML+=numero;
+        document.getElementById("pantalla").innerHTML = document.getElementById("pantalla").innerHTML==0 ? 
+        numero : document.getElementById("pantalla").innerHTML+numero;
 	}
 }
 function resultado(){
-	let i;
+    let i;
+    equal=true;
 	calculo[contador]=document.getElementById("pantalla").innerHTML*1;
-	contador++;
-	calculo[contador]="+";	
-	for(i=1;i<calculo.length-1;i++){
-		res = operar(calculo[i-1], calculo[i+1],calculo[i]);
-		i=i+2;
-	}
+    
+	for(i=0;i<calculo.length;i=i+2){
+        if(i==0){
+		    res = operar(res, calculo[i],'+');	
+        } else{
+            res = isNaN(calculo[i]) ? res : operar(res, calculo[i],calculo[i-1]);
+        }
+			
+    }
 	document.getElementById("pantalla").innerHTML=res;
 }
 function operar(valor1, valor2,operador){
 	switch(operador){
 		case "+":
 			return valor1+valor2;
-		break;
+		    break;
 		case "-":
 			return valor1-valor2;
-		break;
+		    break;
 		case "*":
 			return valor1*valor2;
-		break;
+		    break;
 		case "/":
 			return valor1/valor2;
-		break;
+		    break;
 	}
 }
 function signo(operador){
-	acumular(operador);
+    if(typeof(calculo[contador-1] == 'number') || contador==0){
+        calculo[contador]=document.getElementById("pantalla").innerHTML*1;
+        acumular(operador);
+    } else {
+        alert("No se pueden superponer signos");
+    }
 }
 function borrar(){
 	calculo=new Array();
@@ -53,9 +67,7 @@ function borrar(){
 	document.getElementById("pantalla").innerHTML=0;
 }
 function acumular(operador){
-	calculo[contador]=document.getElementById("pantalla").innerHTML*1;
-	contador++;
 	document.getElementById("pantalla").innerHTML=operador;
-	calculo[contador]=operador;
-	contador++;
+	calculo[contador+1]=operador;
+	contador+=2;
 }
